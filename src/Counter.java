@@ -1,5 +1,3 @@
-package firsttask;
-
 public class Counter implements Runnable {
 
     private final int finalValue;
@@ -20,6 +18,5 @@ public class Counter implements Runnable {
                 return;
             }
         }
-        System.out.println("Reached the final value\n\nEnter something to stop the program");
     }
 }

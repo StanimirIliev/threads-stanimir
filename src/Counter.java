@@ -1,13 +1,14 @@
-public class Counter implements Runnable {
+public class Counter extends Thread {
 
     final int finalValue;
+    private Thread otherThread;
 
     public Counter(int finalValue) {
         this.finalValue = finalValue;
     }
 
-    private void threadMessage(String message){
-        System.out.printf("%s:\t%s\n", Thread.currentThread().getName(), message);
+    public void addRef(Thread otherThread){
+        this.otherThread = otherThread;
     }
 
     public void run(){
@@ -15,10 +16,17 @@ public class Counter implements Runnable {
             for(int i = 1; i <= finalValue; i ++){
                 Thread.sleep(750);
                 threadMessage(String.valueOf(i));
+                if(!otherThread.isAlive()){
+                    throw new InterruptedException();
+                }
             }
         }
         catch(InterruptedException e){
             threadMessage("I was interrupted and exit");
         }
+    }
+
+    private void threadMessage(String message){
+        System.out.printf("%s:\t%s\n", Thread.currentThread().getName(), message);
     }
 }

@@ -16,14 +16,12 @@ public class Counter extends Thread {
             for(int i = 1; i <= finalValue; i ++){
                 Thread.sleep(750);
                 threadMessage(String.valueOf(i));
-                if(!otherThread.isAlive()){
-                    throw new InterruptedException();
-                }
             }
         }
         catch(InterruptedException e){
             threadMessage("I was interrupted and exit");
         }
+        otherThread.interrupt();
     }
 
     private void threadMessage(String message){

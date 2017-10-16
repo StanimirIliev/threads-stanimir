@@ -1,4 +1,7 @@
+package timeouthashtable;
+
 import org.junit.Test;
+import timeouthashtable.TimeoutHashtable;
 
 import static java.lang.Thread.sleep;
 import static org.hamcrest.CoreMatchers.equalTo;

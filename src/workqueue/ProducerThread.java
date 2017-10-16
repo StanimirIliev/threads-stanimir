@@ -1,8 +1,10 @@
-public class Add<T> extends Thread {
-    private final WorkStack<T> stack;
+package workqueue;
+
+public class ProducerThread<T> extends Thread {
+    private final WorkQueue<T> stack;
     private final T item;
 
-    public Add(T item, WorkStack<T> stack){
+    public ProducerThread(T item, WorkQueue<T> stack){
         this.item = item;
         this.stack = stack;
     }

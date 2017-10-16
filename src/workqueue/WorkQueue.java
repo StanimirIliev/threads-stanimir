@@ -1,7 +1,9 @@
+package workqueue;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkStack<T> {
+public class WorkQueue<T> {
     private int maxSize;// stores the set maximum of elements
     private List<T> list = null;// the list with elements
 
@@ -9,7 +11,7 @@ public class WorkStack<T> {
      * Creates new instance of this class with set maxSize of the list
      * @param size
      */
-    public WorkStack(int size){
+    public WorkQueue(int size){
         list = new ArrayList<>(size);// creates instance of the class ArrayList with the specific maxSize
         this.maxSize = size;// stores the maxSize
     }
@@ -46,7 +48,7 @@ public class WorkStack<T> {
         System.out.println(list);
     }
 
-    public int size(){
+    public synchronized int size(){
         return list.size();
     }
 

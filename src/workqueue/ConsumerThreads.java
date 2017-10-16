@@ -1,7 +1,9 @@
-public class Remove<T> extends Thread {
-    private final WorkStack<T> stack;
+package workqueue;
 
-    public Remove(WorkStack<T> stack){
+public class ConsumerThreads<T> extends Thread {
+    private final WorkQueue<T> stack;
+
+    public ConsumerThreads(WorkQueue<T> stack){
         this.stack = stack;
     }
 

@@ -1,3 +1,5 @@
+package twothreadscount;
+
 public class MainClass {
     public static void main(String[] args) {
         Counter t1 = new Counter(5);

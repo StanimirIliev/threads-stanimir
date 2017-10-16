@@ -1,3 +1,5 @@
+package twothreadscount;
+
 public class Counter extends Thread {
 
     final int finalValue;
